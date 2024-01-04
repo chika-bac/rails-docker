@@ -1,24 +1,24 @@
-# README
+# 環境構築方法
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 1. GitHubリポジトリURLを自身のPCにクローン
+```zsh
+git cline git@github.com:chika-bac/rails-docker.git
 
-Things you may want to cover:
+# クローンしたリポジトリに移動
+cd rails-docker
+```
 
-* Ruby version
+## 2. 以下コマンドを実施してコンテナを起動
+```zsh
+docker-compose up
+```
 
-* System dependencies
+## 3. コンテナ内にDBを作成
+ターミナルの別タブを開き、以下コマンドを実行
+```zsh
+docker compose exec web rails db:create
+docker compose exec web rails db:migrate
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 4. ブラウザで動作確認
+`http:localhost:3000`にアクセスし、表示確認をする
